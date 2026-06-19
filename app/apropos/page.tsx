@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: "Présentation de la démarche LANGOCHAT."
+  description: "Pourquoi LANGOCHAT a été créé."
 };
 
 export default function AproposPage() {
@@ -14,22 +14,24 @@ export default function AproposPage() {
       <section className="section-shell">
         <SectionHeader
           eyebrow="À propos"
-          title="Un outil pour les adultes qui veulent comprendre avant de répondre."
-          text="LANGOCHAT propose des repères pédagogiques, prudents et accessibles. Il accompagne la réflexion, mais ne remplace pas les professionnels ni les dispositifs d'urgence."
+          title="Parler avec un enfant n'est pas toujours simple."
+          text="Certaines situations soulèvent des questions auxquelles il est difficile de répondre seul. LangOchat a été imaginé pour aider les adultes à préparer ces échanges avec davantage de repères, de prudence et de confiance."
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           <InfoCard
-            title="Une posture"
-            text="Ralentir, observer, parler avec justesse et préserver le lien chaque fois que cela est possible."
+            title="Une intention"
+            text="Aider les adultes à trouver les mots justes lorsqu'un enfant ou un adolescent traverse une situation qui les interroge, les inquiète ou les dépasse."
           />
+
           <InfoCard
-            title="Un public"
-            text="Parents, enseignants, éducateurs, assistants familiaux et proches concernés par une situation délicate."
+            title="Pour qui ?"
+            text="Parents, enseignants, éducateurs, assistants familiaux, proches ou professionnels confrontés à des questions sensibles du quotidien."
           />
+
           <InfoCard
-            title="Une limite"
-            text="LANGOCHAT n'est pas destiné aux enfants et ne pose aucun diagnostic."
+            title="Ce que LangOchat n'est pas"
+            text="LangOchat ne remplace ni un professionnel, ni un service d'urgence, et ne pose aucun diagnostic. Il propose des repères pour mieux préparer le dialogue."
           />
         </div>
       </section>

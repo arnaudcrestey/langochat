@@ -3,32 +3,44 @@
 
 :root {
   --background: #faf8f5;
-  --foreground: #1f2937;
-  --surface: #f6f4f1;
-  --muted: #4d5a4b;
-  --green: #8d9a84;
-  --sand: #d8c3a5;
-  --line: rgba(31, 41, 55, 0.11);
+  --foreground: #2f3a37;
+  --surface: #fffdf8;
+  --surface-soft: #f2e9dd;
+  --muted: #5f6b61;
+  --sage: #a8b5a2;
+  --sage-deep: #87957f;
+  --ochre: #d9a46a;
+  --ochre-deep: #c98935;
+  --line: rgba(47, 58, 55, 0.12);
+  --white-glass: rgba(255, 253, 248, 0.78);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-langochat-bg: var(--background);
   --color-langochat-surface: var(--surface);
+  --color-langochat-soft: var(--surface-soft);
   --color-langochat-ink: var(--foreground);
   --color-langochat-muted: var(--muted);
-  --color-langochat-green: var(--green);
-  --color-langochat-sand: var(--sand);
+  --color-langochat-sage: var(--sage);
+  --color-langochat-green: var(--sage);
+  --color-langochat-ochre: var(--ochre);
+  --color-langochat-gold: var(--ochre);
+  --color-langochat-goldDark: var(--ochre-deep);
   --color-langochat-line: var(--line);
+
   --font-sans: "Inter", Arial, Helvetica, sans-serif;
   --font-display: "Poppins", "Inter", Arial, Helvetica, sans-serif;
   --font-signature: "Cormorant Garamond", Georgia, serif;
   --font-mono: var(--font-geist-mono);
-  --shadow-soft: 0 14px 42px rgba(31, 41, 55, 0.08);
-  --shadow-premium: 0 1px 2px rgba(31, 41, 55, 0.05),
-    0 18px 50px rgba(87, 102, 81, 0.12),
-    0 36px 110px rgba(87, 102, 81, 0.14);
+
+  --shadow-soft: 0 16px 42px rgba(47, 58, 55, 0.08);
+  --shadow-premium:
+    0 1px 2px rgba(47, 58, 55, 0.05),
+    0 24px 60px rgba(47, 58, 55, 0.1),
+    0 54px 130px rgba(168, 181, 162, 0.18);
 }
 
 * {
@@ -44,7 +56,23 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background: var(--background);
+  background:
+    radial-gradient(
+      circle at 8% 4%,
+      rgba(217, 164, 106, 0.18),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(168, 181, 162, 0.22),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 72% 96%,
+      rgba(217, 164, 106, 0.13),
+      transparent 30rem
+    ),
+    var(--background);
   color: var(--foreground);
   font-family: "Inter", Arial, Helvetica, sans-serif;
   text-rendering: geometricPrecision;
@@ -53,7 +81,10 @@ body {
 }
 
 a,
-button {
+button,
+input,
+textarea,
+select {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -62,22 +93,37 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 ::selection {
-  background: rgba(141, 154, 132, 0.22);
+  background: rgba(217, 164, 106, 0.28);
 }
 
 :focus-visible {
-  outline: 3px solid rgba(141, 154, 132, 0.42);
+  outline: 3px solid rgba(217, 164, 106, 0.42);
   outline-offset: 4px;
 }
 
 .eyebrow {
   font-family: "Poppins", "Inter", sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--ochre-deep);
 }
 
 .section-shell {
@@ -92,21 +138,35 @@ a {
 }
 
 .section-title {
-  font-family: "Poppins", "Inter", sans-serif;
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.7rem, 7vw, 5.8rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
   color: var(--foreground);
 }
 
 .premium-card {
   min-height: 13rem;
-  border: 1px solid rgba(141, 154, 132, 0.18);
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(47, 58, 55, 0.1);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 253, 248, 0.94),
+      rgba(255, 253, 248, 0.78)
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(168, 181, 162, 0.16),
+      transparent 18rem
+    );
   padding: 1.5rem;
   box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
 }
+
+/* BOUTONS */
 
 .btn-primary,
 .btn-secondary {
@@ -116,7 +176,7 @@ a {
   justify-content: center;
   border-radius: 999px;
   padding: 0.78rem 1.8rem;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 700;
   transition:
     transform 0.24s ease,
@@ -126,15 +186,15 @@ a {
 }
 
 .btn-primary {
-  border: 1px solid rgba(141, 154, 132, 0.26);
-  background: var(--green);
+  border: 1px solid rgba(201, 137, 53, 0.28);
+  background: linear-gradient(135deg, #e2ad6e, var(--ochre-deep));
   color: white;
-  box-shadow: 0 20px 55px rgba(141, 154, 132, 0.28);
+  box-shadow: 0 18px 44px rgba(217, 164, 106, 0.34);
 }
 
 .btn-secondary {
-  border: 1px solid rgba(31, 41, 55, 0.12);
-  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(47, 58, 55, 0.13);
+  background: rgba(255, 253, 248, 0.72);
   color: var(--foreground);
 }
 
@@ -144,50 +204,97 @@ a {
 }
 
 .btn-primary:hover {
-  background: #7d8a74;
-  box-shadow: 0 24px 64px rgba(141, 154, 132, 0.34);
+  background: linear-gradient(135deg, #e8b77c, #bd7f31);
+  box-shadow: 0 24px 58px rgba(217, 164, 106, 0.42);
 }
 
 .btn-secondary:hover {
-  border-color: rgba(141, 154, 132, 0.38);
+  border-color: rgba(217, 164, 106, 0.42);
   background: white;
 }
 
-.audience-pill {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(141, 154, 132, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.68);
-  padding: 0.72rem 1.05rem;
-  color: var(--foreground);
-  font-size: 0.9rem;
-  font-weight: 600;
-  box-shadow: var(--shadow-soft);
-}
+/* FORMULAIRES */
 
-.field {
+.field,
+.form-field {
   width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.82);
-  padding: 0.9rem 1rem;
+  appearance: none;
+  border: 1px solid rgba(47, 58, 55, 0.14);
+  border-radius: 1rem;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 253, 248, 0.82)
+    );
+  padding: 0.92rem 1rem;
   color: var(--foreground);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.5rem;
   outline: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 20px rgba(47, 58, 55, 0.035);
   transition:
     border-color 0.2s ease,
     background 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.field:focus {
-  border-color: rgba(141, 154, 132, 0.7);
-  background: white;
-  box-shadow: 0 0 0 4px rgba(141, 154, 132, 0.12);
+.field::placeholder,
+.form-field::placeholder {
+  color: rgba(95, 107, 97, 0.58);
+}
+
+.field:focus,
+.form-field:focus {
+  border-color: rgba(217, 164, 106, 0.68);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 0 0 4px rgba(217, 164, 106, 0.13),
+    0 14px 32px rgba(47, 58, 55, 0.06);
+}
+
+textarea.field,
+textarea.form-field {
+  resize: vertical;
+}
+
+select.field,
+select.form-field {
+  cursor: pointer;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 253, 248, 0.82)
+    ),
+    url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8L10 12L14 8' stroke='%235F6B61' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    center,
+    right 1rem center;
+  background-size:
+    auto,
+    1rem;
+  padding-right: 2.75rem;
+}
+
+/* ÉLÉMENTS VISUELS */
+
+.audience-pill {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(47, 58, 55, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  padding: 0.72rem 1.05rem;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
 }
 
 @media (min-width: 640px) {
@@ -199,6 +306,34 @@ a {
 @media (min-width: 1024px) {
   .section-shell {
     padding: 6rem 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  main,
+  section,
+  .premium-card,
+  button,
+  label,
+  input,
+  textarea,
+  select {
+    pointer-events: auto !important;
+  }
+
+  [class*="absolute"][class*="inset-0"] {
+    pointer-events: none !important;
+  }
+
+  .premium-card {
+    padding: 1.15rem;
+    border-radius: 1.2rem;
+  }
+
+  .field,
+  .form-field {
+    font-size: 0.95rem;
+    padding: 0.9rem 0.95rem;
   }
 }
 

@@ -15,8 +15,9 @@ export default function CommentEnParlerPage() {
         <SectionHeader
           eyebrow="Comment en parler"
           title="Préparer les premiers mots sans brusquer."
-          text="Cette V1 génère une proposition locale, structurée et prudente. Elle est prête à être connectée à une API plus tard, sans l'utiliser aujourd'hui."
+          text="Un espace pour préparer une conversation avec des mots simples, adaptés à la situation."
         />
+
         <div className="mt-10">
           <TalkForm />
         </div>

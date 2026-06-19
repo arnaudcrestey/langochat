@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Confidentialité",
-  description: "Informations de confidentialité LANGOCHAT."
+  description: "Informations de confidentialité de LANGOCHAT."
 };
 
 export default function ConfidentialitePage() {
@@ -14,26 +14,39 @@ export default function ConfidentialitePage() {
       <section className="section-shell">
         <SectionHeader
           eyebrow="Confidentialité"
-          title="Une V1 locale, sans compte utilisateur."
-          text="Les fonctionnalités actuelles ne nécessitent ni authentification, ni base de données, ni API externe. Les informations saisies dans l'outil de conversation servent uniquement à produire une réponse locale dans le navigateur."
+          title="Un outil pensé pour limiter la collecte de données."
+          text="LangOchat a été conçu pour aider les adultes à préparer une conversation avec prudence. Les informations saisies doivent rester utiles, limitées et formulées sans détails inutilement identifiants."
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           <InfoCard
-            title="Questionnaire"
-            text="Le tirage des questions et les réponses sont conservés dans la session du navigateur afin de garder le parcours stable pendant l'utilisation."
+            title="Aucun compte utilisateur"
+            text="La version actuelle ne nécessite pas de création de compte. Elle ne demande ni identifiant, ni mot de passe, ni espace personnel."
           />
+
           <InfoCard
-            title="Formulaire de dialogue"
-            text="La proposition est générée localement. Il est recommandé de ne pas saisir de données inutilement identifiantes ou sensibles."
+            title="Utilisation des informations saisies"
+            text="Les éléments renseignés servent uniquement à générer une analyse ou une proposition de conversation adaptée à la situation décrite."
           />
+
           <InfoCard
-            title="Evolution possible"
-            text="Si une API est ajoutée plus tard, les informations de confidentialité devront être complétées avant mise en service."
+            title="Données sensibles"
+            text="Il est recommandé d'éviter les noms complets, adresses, établissements, numéros de téléphone ou tout détail permettant d'identifier directement un enfant ou une famille."
           />
+
           <InfoCard
-            title="Urgence"
-            text="En cas de danger, il faut utiliser les services compétents. LANGOCHAT ne doit jamais retarder une demande d'aide."
+            title="Stockage temporaire"
+            text="Certaines informations peuvent être conservées temporairement dans le navigateur afin de faciliter le passage entre le questionnaire et l'outil de préparation à la conversation."
+          />
+
+          <InfoCard
+            title="Limite de l'outil"
+            text="LANGOCHAT ne remplace ni un professionnel, ni un service social, médical, éducatif ou d'urgence. Il ne pose aucun diagnostic."
+          />
+
+          <InfoCard
+            title="Situation urgente"
+            text="En cas de danger, de violence, de malaise important ou de doute sérieux, il faut contacter sans attendre les services compétents."
           />
         </div>
       </section>
